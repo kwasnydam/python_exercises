@@ -1,0 +1,117 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>DESCRIPTION &#8212; stylSyntax 0.1 - dokumentacja</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="genindex.html" />
+    <link rel="search" title="Szukaj" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p>#!/usr/bin/env python3
+#Documentation string:
+„””
+SUMMARY
+=====</p>
+<p>Plik zawiera wskazowki na temat stylu pisania w Pythonie</p>
+<div class="section" id="description">
+<h1>DESCRIPTION<a class="headerlink" href="#description" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<dl class="docutils">
+<dt>::</dt>
+<dd>First Paragraph</dd>
+</dl>
+<dl class="docutils">
+<dt>::</dt>
+<dd>Second Paragraph</dd>
+</dl>
+<p>„””
+import math
+example_value = (63/25)*(17+15*math.sqrt(5))/(7+15*math.sqrt(5))
+mantissa_fraction, exponent = math.frexp(example_value)
+mantissa_whole =int(mantissa_fraction*2**53)</p>
+<dl class="docutils">
+<dt>«»» Ponizsze wyraznie jest w chuj dlugie i chcemy je skrocic</dt>
+<dd>mozemy to zrobic zamykajac cale wyrazenie w () albo uzywac na koncu liniizeby stala sie bardziej czytalena «»«</dd>
+</dl>
+<p>messege_text1 = «the internal representation is{mantissa:d}/2**53*2**{exponent:d}».format(mantissa=mantissa_whole,exponent=exponent)
+print(messege_text1)</p>
+<p>«»«Mozemy rozbic to w nastepujacy sposob, korzystajac z () i backslasha,
+wynik jest taki sam, a przyjemniej sie czyta»«»
+messege_text2 = ( «the internal representation is{mantissa:d}/2**53*2**{exponent:d}».format(mantissa=mantissa_whole,exponent=exponent) )
+print(messege_text2)</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Ta strona</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/styleAndSyntax.py.txt"
+            rel="nofollow">Pokaż źródło</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Szybkie wyszukiwanie</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Szukaj" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Damian Kwasny.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/styleAndSyntax.py.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
