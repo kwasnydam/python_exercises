@@ -33,3 +33,11 @@ print('min value = {min}'.format(min = testBST.find_min()))
 # 2. search
 print(testBST.search(1))
 print(testBST.search(123))
+
+# 3. inorder, preorder and postorder traversal
+print('inorder:')
+testBST.inorder(testBST.root_node)
+print('preorder')
+testBST.preorder(testBST.root_node)
+print('postorder')
+testBST.postorder(testBST.root_node)

@@ -87,3 +87,27 @@ class myBST:
                     return None
     #The delete operation is actually slightly more complicated and for now
     # i wont implement it
+    #Still, there is tree traversal so I can visit every node
+    def inorder(self, root_node):
+        current = root_node
+        if not current:
+            return
+        self.inorder(current.left_child)
+        print(current.data)
+        self.inorder(current.right_child)
+
+    def preorder(self, root_node):
+        current = root_node
+        if not current:
+            return
+        print(current.data)
+        self.inorder(current.left_child)
+        self.inorder(current.right_child)
+
+    def postorder(self, root_node):
+        current = root_node
+        if not current:
+            return
+        self.inorder(current.left_child)
+        self.inorder(current.right_child)
+        print(current.data)
