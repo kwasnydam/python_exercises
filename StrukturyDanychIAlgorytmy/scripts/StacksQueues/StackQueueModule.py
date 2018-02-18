@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 '''
 Stack (stos) is a LIFO (Last Input First Output) data structure(like
 a tower of books, in order to grab the first book you have to remove all the
