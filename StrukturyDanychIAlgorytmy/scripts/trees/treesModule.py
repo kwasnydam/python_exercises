@@ -61,14 +61,29 @@ class myBST:
                 if node.data <= current.data:
                     if current.left_child:
                         current = current.left_child
-                        return
                     else:
                         current.left_child = node
                         return
                 else:
                     if current.right_child:
                         current = current.right_child
-                        return
                     else:
                         current.right_child = node
                         return
+    def search(self, data):
+        if self.root_node == None: return -1
+        current = self.root_node
+        while current:
+            if current.data == data: return current.data
+            elif data < current.data:
+                if current.left_child:
+                    current = current.left_child
+                else:
+                    return None
+            else:
+                if current.right_child:
+                    current = current.right_child
+                else:
+                    return None
+    #The delete operation is actually slightly more complicated and for now
+    # i wont implement it

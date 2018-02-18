@@ -24,6 +24,12 @@ testBST.insert(5)
 testBST.insert(3)
 testBST.insert(7)
 testBST.insert(1)
+testBST.insert(2)
+testBST.insert(11)
 print('max value = {max}'.format(max = testBST.find_max()))
 print('min value = {min}'.format(min = testBST.find_min()))
 # mou ichi dou, Omedetou gozaimasu!
+
+# 2. search
+print(testBST.search(1))
+print(testBST.search(123))
