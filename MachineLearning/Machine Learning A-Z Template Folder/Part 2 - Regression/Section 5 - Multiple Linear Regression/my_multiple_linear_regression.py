@@ -2,6 +2,18 @@
 """
 @Topic: Multiple Linear Regression
 @author: Damian Kwasny
+
+I am following the Udemy course on Machine Learning A-Z™: Hands-On Python & R 
+in Data Science here so majoristy of credit belongs to them. Actually, I have added
+my own algorithm of backward elimination, which managed to automate the process
+beacuse the method with manually examining each iteration and manually removing 
+the predictors with highest p-values, then copy pasting the procedure that 
+was used in the tutorial video seemed dumb to me, it may work when there are 6
+varaiables but doing it everytime on every model and maybe with more data seemed
+awfull, so there it is. I am using the output of rgressor_OLS.summary() output
+object to dig into data. Unfortunately, they are poorly named so I just had to 
+dig in through the tables and rows
+
 This is a multiple linear regression example script. This time around we have a
 number of independent variables and we need to build a model of how does the
 single dependent variable depends upon all of them, which parameters are 
