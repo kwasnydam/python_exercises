@@ -92,7 +92,44 @@ X_optimal = X
 # backward elimination workflow
 sl = 0.05 #step1: siginificance level
 regressor_OLS = sm.OLS(endog = y, exog = X_optimal).fit() #step2. fitting all
-while predictor_p_value > sl:
-    summ = [regressor_OLS.summary().tables[1][i][4].data for\
-            i in range(1,np.size(regressor_OLS.summary().tables[1],1))]
-    predictor_p_value = max(summ) 
+bad_indices = set()
+#while predictor_p_value > sl:
+while True: 
+    '''So what is going on here anyway?
+    Basically, I store the column of p-values of my current model's predictors 
+    in the summ variable as a list (I obtain it from the regresso_OLS.summary() object
+    and it is not very pretty formula). Next I obtain the maximum p-val and it's index
+    in predictor_p_value and predictor_p_index. If the p_value in this step is 
+    higher then threshold sl, I remove it(it means it is insiginificant), else
+    I am leaving the loop beacuse it means that all reamining var are siginificant.
+    Removing the bad predictor is achieved by assigning a new X_optimal without
+    the bad predictor column (which is removed in indices.remove part). Next I 
+    create a new model and repeat the steps (step3-4 of backward elimination are
+    described in here)
+    '''
+    summ = []
+    summ = [regressor_OLS.summary().tables[1][i][4].data for i in range(1, np.size(regressor_OLS.summary().tables[1],0))]
+    predictor_p_value, predictor_p_index = max(summ),  np.argmax(summ)
+    if float(predictor_p_value) < sl: 
+        break
+    #bad_indices.add(predictor_p_index)
+    #indices = [i for i in range(len(X[1,:]))]
+    #for bad_index in bad_indices:
+    indices = [i for i in range(len(X_optimal[1,:]))]
+    indices.remove(predictor_p_index)
+    X_optimal = X_optimal[:,indices]    
+    regressor_OLS = sm.OLS(endog = y, exog = X_optimal).fit()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
