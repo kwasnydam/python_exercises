@@ -6,7 +6,25 @@ SUMMARY
 =======
 
 Przedstawia uzycie setow
+set (zbiór) comes really handy when t comes to calculate the differences
+between two objects and generally allows for a common set of operators
+yoou would use ona a mathemtical, well, set.
 """
+
+def printSet(expression, set_):
+    #print set as a string sorted by letters
+    print(expression, ''.join(sorted(set_)))
+
+spam = set('spam')
+eggs = set('eggs')
+printSet('spam: ', spam)    # amps
+printSet('eggs: ', eggs)    # egs -> doesnt allow duplicates
+printSet('spam & eggs: ', spam & eggs) # s -> intersection, common elements
+printSet('spam | eggs: ', spam | eggs) # aegmps -> union, every el in either
+printSet('spam ^ eggs: ', spam ^ eggs) # aegmp -> symmetric diff, every in either but no both
+printSet('spam - eggs: ', spam - eggs) # amp -> unique for first
+printSet('eggs - spam: ', eggs - spam) # eg -> unique for first
+#printSet('spam > eggs: ', spam > eggs) # False -> true if first contains second
 
 def arrival1(n=8):
     """ Zwraca losowa wartosc calkowita z przedzialu 0-n

@@ -1,7 +1,15 @@
 """
 Listy są najpopularniejszym wbudowanym typen danych, bo moga skladac sie z
-dowolnych typow danych/obiektow. Podobnie jak w przypadku stringow, llisty
-mozna przegladac po indeksie
+dowolnych typow danych/obiektow. Podobnie jak w przypadku stringow, listy
+mozna przegladac po indeksie.
+Złożoność obliczeniowa operacji na typie list:
+append -> O(1)
+len -> O(1)
+remove -> O(n)
+insert -> O(n)
+min -> O(n)
+max -> O(n)
+in -> O(n)
 """
 x = 1
 y = 2
