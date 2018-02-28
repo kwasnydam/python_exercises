@@ -33,4 +33,4 @@ def fib(num = 10):
 with open('mydata.txt', mode ='w', encoding = 'utf-8') as myFile:
     for k in range(10):
         myFile.write('{} \n'.format(fib(k)))
-    myFile.write('good job sir!')    
+    myFile.write('good job sir!')
