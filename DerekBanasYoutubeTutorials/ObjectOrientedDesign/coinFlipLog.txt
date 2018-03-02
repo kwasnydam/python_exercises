@@ -1,0 +1,13 @@
+Coin: T Joe: H Steve TSteve won
+Coin: H Joe: H Steve T
+Joe won
+Coin: H Joe: H Steve T
+Joe won
+Coin: T Joe: H Steve T
+Steve won
+Coin: H Joe: H Steve T
+Joe won
+Coin: H Joe: H Steve T
+Joe won
+Coin: T Joe: H Steve T
+Steve won

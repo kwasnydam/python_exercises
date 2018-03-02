@@ -11,21 +11,24 @@ class Player(object):
     setPredicition  -   forced from outside
     makePredicition - random if choosen
     """
-    def __init__(self, name):
+    def __init__(self, name = None, prediction = None):
         self.name = name
-        self.prediction = None
+        self.prediction = prediction
+
     @property
     def prediction(self):
         return self.__prediction
 
-    @predicition.setter
-    def predicition(self, prediction):
+    @prediction.setter
+    def prediction(self, prediction):
         if prediction == 'H':
             self.__prediction = 'T'
         else:
             self.__prediction = 'H'
+        print('{} has {}'.format(self.name, self.prediction))
     def makePrediction(self):
         self.predicition = random.choice(['H', 'T'])
+        print('{} predicted {}'.format(self.name, self.prediction))
 
 class Coin(object):
     """Coin class is responsible for flipping a coin"""
@@ -57,15 +60,14 @@ class CoinGame(object):
     @player1.setter
     def player1(self, player):
         try:
-            if player isinstance(Player):
-                self.player1 = player
+            if isinstance(player, Player):
+                self.__player1 = player
             else:
                 raise ValueError
         except ValueError as e:
             print('ValueError: Expected {} was {}'.format(
             Player.__name__, type(player).__name__))
-        else:
-            print('U screwed up man')
+
 
     @property
     def player2(self):
@@ -74,15 +76,14 @@ class CoinGame(object):
     @player2.setter
     def player2(self, player):
         try:
-            if player isinstance(Player):
-                self.player2 = player
+            if isinstance(player, Player):
+                self.__player2 = player
+                print('U did it man')
             else:
                 raise ValueError
         except ValueError as e:
             print('ValueError: Expected {} was {}'.format(
             Player.__name__, type(player).__name__))
-        else:
-            print('U screwed up man')
 
     @property
     def coin(self):
@@ -91,36 +92,59 @@ class CoinGame(object):
     @coin.setter
     def coin(self, coin):
         try:
-            if coin isinstance(Coin):
-                self.coin = coin
+            if isinstance(coin, Coin):
+                self.__coin = coin
             else:
                 raise TypeError
         except TypeError as e:
             print('ValueError: Expected {} was {}'.format(
             Coin.__name__, type(coin).__name__))
+
+    def winner(self):
+        if self.player1.prediction == self.coin.result:
+            print('{} won'.format(self.player1.name))
         else:
-            print('U screwed up man')
+            print('{} won'.format(self.player2.name))
+
+    def resultsLogger(self):
+        with open('coinFlipLog.txt','a+', encoding = 'utf-8') as f:
+            f.write('Coin: {} {}: {} {} {}\n'.format(self.coin.result, self.player1.name,
+            self.player1.prediction, self.player2.name,self.player2.prediction))
+            if self.player1.prediction == self.coin.result:
+                f.write('{} won'.format(self.player1.name))
+            else:
+                f.write('{} won'.format(self.player2.name))
+            f.write('\n')
 
     def startGame(self):
         if self.player1 and self.player2 and self.coin:
             pass
         else:
-            break
-
+            return
+        print('Welcome to the coin Flip game')
+        print('Player1 name is {}'.format(self.player1.name))
+        print('Player2 name is {}'.format(self.player2.name))
         #So we are in the game
-        chosenPlayer = random.choice([1, 2])
-        if chosenPlayer == 1:
-            self.player1.makePrediction()
-            self.player2.setPredicition(self.player1.prediction)
-        else:
-            self.player2.makePrediction()
-            self.player1.setPredicition(self.player2.prediction)
+        while True:
+            chosenPlayer = random.choice([1, 2])
+            if chosenPlayer == 1:
+                self.player1.makePrediction()
+                self.player2.prediction = (self.player1.prediction)
+            else:
+                self.player2.makePrediction()
+                self.player1.prediction = (self.player2.prediction)
 
-        self.coin.flip()
-        result = self.coin.result
-        print('Coin: {} Player1: {} Player2 {}'.format(result, self.player1.prediction,
-        self.player2.prediction))
-
+            self.coin.flip()
+            result = self.coin.result
+            print('Coin: {} {}: {} {} {}'.format(result, self.player1.name,
+            self.player1.prediction, self.player2.name,self.player2.prediction))
+            self.winner()
+            self.resultsLogger()
+            playAgain = input('type "y" if you want to have a next round: ')
+            if playAgain == 'y':
+                pass
+            else:
+                break
 def main():
     player1 = Player(name='Joe')
     player2 = Player(name='Steve')
