@@ -1,0 +1,36 @@
+Coin Flip game
+
+Usage:
+A player at random offers a prediction of a coin flip. The other one gets the
+second option. Coin is Flipped. The ploayer w ith correct guess wins.
+
+Triggers:
+
+A player at random offers a prediction of a coin Flip
+
+Actors:
+
+A player who makes the prediction
+A player that gets the second option
+coin
+Coin game
+
+What is needed:
+2 players
+A Coin
+
+Goals:
+One player wins, the second loses
+
+Not Avaiable:
+Failed Conclusions, Extensions.
+
+Steps of execution:
+
+1. A player at random is picked to predict the coin Flip
+2. The player picked offers his prediction
+3. The 2nd player gets the other coin flip oprtion
+4. The coin is Flipped
+5. The results are provided
+6. A winner and loser is picked
+7. Offer to try agian
